@@ -6,14 +6,14 @@ simple infinite scroll
 Doc.
 ========
 
-coming soon
+coming soon!
 
 Esempi
 ========
 
-coming soon
+coming soon!
 
 Demo
 ========
 
-coming soon
+coming soon!
