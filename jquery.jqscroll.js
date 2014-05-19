@@ -6,9 +6,7 @@
 | |_____ | || | | ||  _ ( | (_) |
 \_______)|_||_| |_||_| \_) \___/ 
                                       
-*/
 
-/*!
  * jqScroll v1.2 - jQuery Plugin for Infinite Scrolling 
  * http://blog.ddmweb.it/
  *
@@ -20,15 +18,19 @@
  *
  * @author Davide Di Modica
  * @requires jQuery v1.4.3+
- */
+ 
+*/
 
 //plugin infinite scroll super!!!
-//
+
+//dichiaro la variabile globale per le opzioni
 window.jqScroll = {};
 window.jqScroll.opts = {};
 (function($){
 
+	//start plugin
 	$.fn.jqScroll = function(options) {
+		//aggiorno le opzioni
 		var opts = $.extend($.fn.jqScroll.defaults, options);  
 		var target = opts.scrollTarget;
 		if (target == null){
@@ -38,17 +40,20 @@ window.jqScroll.opts = {};
 
 		window.jqScroll.opts = opts;
 
+		//associo il plugin ad ogni elemento corrispondente al selettore
 		return this.each(function() {
 			$.fn.jqScroll.init($(this), opts);
 		});
 	};
 
+	//disabilito il plugin
 	$.fn.jqScrollStopScroll = function(){
 		return this.each(function() {
 			$(this).attr('jqScroll', 'disabled');
 		});
 	};
 
+	//riabilito il plugin
 	$.fn.jqScrollRestartScroll = function(){
 		return this.each(function() {
 			$(this).attr('jqScroll', 'enabled');
@@ -56,7 +61,7 @@ window.jqScroll.opts = {};
 		});
 	};
 
-	// code for fade in element by element
+	// fade-in per i nuovi elementi
 	$.fn.jqScrollfadeInWithDelay = function(){
 		var delay = 0;
 		return this.each(function(){
@@ -65,9 +70,11 @@ window.jqScroll.opts = {};
 		});
 	};
 
+	//carico i contenuti
 	$.fn.jqScroll.loadContent = function(obj, opts){
 		if ($(obj).attr('jqScroll') == 'enabled'){
 			var target = opts.scrollTarget;
+			//verifico se sono arrivato a fondo pagina più eventuale offset
 			var mayLoadContent = $(target).scrollTop()+opts.heightOffset >= $(document).height() - $(target).height();
 			if (mayLoadContent){
 				if (opts.beforeLoad != null){
@@ -78,11 +85,12 @@ window.jqScroll.opts = {};
 
 				if (opts.loading != null){
 					opts.loading();
+					//restituisco i nuovi elementi
 					var objectsRendered = $(obj).children('[rel!=loaded]');
 					if (opts.afterLoad != null){
 						opts.afterLoad(objectsRendered);	
 					}
-				}else{
+				}else{// qui posso avviare una funzione predefinita ajax
 					$.ajax({
 						type: opts.typeRequest,
 						url: opts.contentPage,
@@ -102,7 +110,8 @@ window.jqScroll.opts = {};
 						}
 					});				
 				}
-
+				//aggiungo elementi fino a riempire tutto l'elemento contenitore, 
+				//così da poter riabilitare lo scroll 
 				while($(target).scrollTop()+opts.heightOffset > $(document).height() - $(target).height() && $(obj).attr('jqScroll') == 'enabled'){
 					$.fn.jqScroll.loadContent(obj, opts);
 				}
@@ -110,6 +119,7 @@ window.jqScroll.opts = {};
 		}
 	};
 
+	//ascolto l'evento scroll e carico i contenuti
 	$.fn.jqScroll.init = function(obj, opts){
 		console.log(opts);
 		var target = opts.scrollTarget;
@@ -130,16 +140,17 @@ window.jqScroll.opts = {};
 		//}
 	};
 
+	//opzioni di default
 	$.fn.jqScroll.defaults = {
-		'contentPage' : null,
-		'contentData' : {},
-		'typeRequest': null,
-		'dataType': null,
-		'beforeLoad': null,
-		'loading': null,
-		'afterLoad': null,
-		'ajaxCallback': null,
-		'scrollTarget': null,
-		'heightOffset': 0		  
+		'contentPage' : null,//url per funzione ajax predefinita, es: http://miosito.com/page.php
+		'contentData' : {},//parametri da inviare all'url, es: {'key1': val1, 'key2': val2}
+		'typeRequest': null,//tipo di richiesta, es: POST, GET, PUT, DELETE
+		'dataType': null,//tipo di dato in ascolto, es: json
+		'beforeLoad': null,//funzione prima del caricamento
+		'loading': null,//funzione per il caricamento (se è valida non viene eseguita la funzione ajax predefinita)
+		'afterLoad': null,//funzione dopo il caricamento (alla quale vengono restituiti i nuovi elementi)
+		'ajaxCallback': null,//callback della funzione ajax predefinita
+		'scrollTarget': null,//elemento per il quale si deve ascoltare l'evento scroll
+		'heightOffset': 0//(integer) serve a caricare gli elementi prima di arrivare a fondo pagina, es: 200, $('#footer').height()		  
 	};	
 })( jQuery );
