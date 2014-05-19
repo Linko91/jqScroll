@@ -1,4 +1,4 @@
-jqScroll
+jqScroll (jQuery plugin)
 ========
 
 simple infinite scroll
