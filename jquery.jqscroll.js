@@ -39,6 +39,10 @@ window.jqScroll.opts = {};
 		opts.scrollTarget = target;
 
 		window.jqScroll.opts = opts;
+		
+		if (opts.loading != null && opts.firstLoad){
+			opts.loading();
+		}
 
 		//associo il plugin ad ogni elemento corrispondente al selettore
 		return this.each(function() {
@@ -151,6 +155,7 @@ window.jqScroll.opts = {};
 		'afterLoad': null,//funzione dopo il caricamento (alla quale vengono restituiti i nuovi elementi)
 		'ajaxCallback': null,//callback della funzione ajax predefinita
 		'scrollTarget': null,//elemento per il quale si deve ascoltare l'evento scroll
-		'heightOffset': 0//(integer) serve a caricare gli elementi prima di arrivare a fondo pagina, es: 200, $('#footer').height()		  
+		'heightOffset': 0,//(integer) serve a caricare gli elementi prima di arrivare a fondo pagina, es: 200, $('#footer').height()		  
+		'firstLoad': true//viene effettuato un primo caricamento a priori
 	};	
 })( jQuery );
