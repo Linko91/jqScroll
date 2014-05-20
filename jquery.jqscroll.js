@@ -7,7 +7,7 @@
 \_______)|_||_| |_||_| \_) \___/ 
                                       
 
- * jqScroll v1.2 - jQuery Plugin for Infinite Scrolling 
+ * jqScroll v1.3 - jQuery Plugin for Infinite Scrolling 
  * http://blog.ddmweb.it/
  *
  * Copyright 2013-2014, Davide Di Modica
