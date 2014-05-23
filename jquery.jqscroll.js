@@ -129,9 +129,21 @@ window.jqScroll.opts = {};
 		var target = opts.scrollTarget;
 		$(obj).attr('jqScroll', 'enabled');
 
+		//leggo evento scroll
 		$(target).scroll(function(event){
 			if ($(obj).attr('jqScroll') == 'enabled'){
 				console.log('scroll');	
+				$.fn.jqScroll.loadContent(obj, opts);	
+			}
+			else {
+				event.stopPropagation();	
+			}
+		});
+
+		//leggo evento resize
+		$(target).resize(function(event){
+			if ($(obj).attr('jqScroll') == 'enabled'){
+				console.log('resize');	
 				$.fn.jqScroll.loadContent(obj, opts);	
 			}
 			else {
