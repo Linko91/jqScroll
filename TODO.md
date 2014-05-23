@@ -1,3 +1,3 @@
 TODO
 ========
-- to listen resize event
+- [x] to listen resize event
