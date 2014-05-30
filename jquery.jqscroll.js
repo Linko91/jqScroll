@@ -7,7 +7,7 @@
 \_______)|_||_| |_||_| \_) \___/ 
                                       
 
- * jqScroll v1.3 - jQuery Plugin for Infinite Scrolling 
+ * jqScroll v1.4 - jQuery Plugin for Infinite Scrolling 
  * http://blog.ddmweb.it/
  *
  * Copyright 2013-2014, Davide Di Modica
@@ -114,9 +114,14 @@ window.jqScroll.opts = {};
 						}
 					});				
 				}
-				//aggiungo elementi fino a riempire tutto l'elemento contenitore, 
-				//così da poter riabilitare lo scroll 
-				while($(target).scrollTop()+opts.heightOffset > $(document).height() - $(target).height() && $(obj).attr('jqScroll') == 'enabled'){
+				
+				if(opts.persistentLoad){
+					//aggiungo elementi fino a riempire tutto l'elemento contenitore, 
+					//così da poter riabilitare lo scroll 
+					while($(target).scrollTop()+opts.heightOffset > $(document).height() - $(target).height() && $(obj).attr('jqScroll') == 'enabled'){
+						$.fn.jqScroll.loadContent(obj, opts);
+					}
+				}else{
 					$.fn.jqScroll.loadContent(obj, opts);
 				}
 			}
@@ -168,6 +173,7 @@ window.jqScroll.opts = {};
 		'ajaxCallback': null,//callback della funzione ajax predefinita
 		'scrollTarget': null,//elemento per il quale si deve ascoltare l'evento scroll
 		'heightOffset': 0,//(integer) serve a caricare gli elementi prima di arrivare a fondo pagina, es: 200, $('#footer').height()		  
-		'firstLoad': true//viene effettuato un primo caricamento a priori
+		'firstLoad': true,//viene effettuato un primo caricamento a priori
+		'persistentLoad': false//viene finchè non si ottiene lo scroll
 	};	
 })( jQuery );
