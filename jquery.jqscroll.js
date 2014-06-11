@@ -7,7 +7,7 @@
 \_______)|_||_| |_||_| \_) \___/ 
                                       
 
- * jqScroll v1.4 - jQuery Plugin for Infinite Scrolling 
+ * jqScroll v1.5 - jQuery Plugin for Infinite Scrolling 
  * http://blog.ddmweb.it/
  *
  * Copyright 2013-2014, Davide Di Modica
@@ -57,11 +57,18 @@ window.jqScroll.opts = {};
 		});
 	};
 
-	//riabilito il plugin
+	//riavvio il plugin
 	$.fn.jqScrollRestartScroll = function(){
 		return this.each(function() {
 			$(this).attr('jqScroll', 'enabled');
 			$.fn.jqScroll.init($(this), window.jqScroll.opts);
+		});
+	};
+
+	//riabilito il plugin
+	$.fn.jqScrollRestoreScroll = function(){
+		return this.each(function() {
+			$(this).attr('jqScroll', 'enabled');
 		});
 	};
 
