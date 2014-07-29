@@ -7,7 +7,7 @@
 \_______)|_||_| |_||_| \_) \___/ 
                                       
 
- * jqScroll v1.5 - jQuery Plugin for Infinite Scrolling 
+ * jqScroll v1.6 - jQuery Plugin for Infinite Scrolling 
  * http://blog.ddmweb.it/
  *
  * Copyright 2013-2014, Davide Di Modica
@@ -129,7 +129,9 @@ window.jqScroll.opts = {};
 						$.fn.jqScroll.loadContent(obj, opts);
 					}
 				}else{
-					$.fn.jqScroll.loadContent(obj, opts);
+					if (opts.lastCheckScroll){
+						$.fn.jqScroll.loadContent(obj, opts);
+					}
 				}
 			}
 		}
@@ -164,7 +166,9 @@ window.jqScroll.opts = {};
 		});
 
 		//while($(target).scrollTop()+opts.heightOffset > $(document).height() - $(target).height()){
-			$.fn.jqScroll.loadContent(obj, opts);
+			if (opts.firstLoad){
+				$.fn.jqScroll.loadContent(obj, opts);
+			}
 		//}
 	};
 
@@ -181,6 +185,7 @@ window.jqScroll.opts = {};
 		'scrollTarget': null,//elemento per il quale si deve ascoltare l'evento scroll
 		'heightOffset': 0,//(integer) serve a caricare gli elementi prima di arrivare a fondo pagina, es: 200, $('#footer').height()		  
 		'firstLoad': true,//viene effettuato un primo caricamento a priori
-		'persistentLoad': false//viene finchè non si ottiene lo scroll
+		'persistentLoad': false,//viene finchè non si ottiene lo scroll
+		'lastCheckScroll': false//viene effettuato un singolo controllo al termine del caricamento degli elementi
 	};	
 })( jQuery );
