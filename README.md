@@ -1,19 +1,13 @@
-jqScroll (jQuery plugin)
-========
+# jqScroll (jQuery plugin)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 simple infinite scroll
 
-Doc.
-========
-
+## Docs
 coming soon!
 
-Esempi
-========
-
+## EXAMPLES
 coming soon!
 
-Demo
-========
-
+## Demo
 coming soon!
