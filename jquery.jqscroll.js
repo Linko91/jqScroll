@@ -1,4 +1,4 @@
-/*
+/*!
  _        _         _            
 | \      (_)       | |           
 | |       _  ____  | |  _   ___  
@@ -7,21 +7,17 @@
 \_______)|_||_| |_||_| \_) \___/ 
                                       
 
- * jqScroll v1.6 - jQuery Plugin for Infinite Scrolling 
- * http://blog.ddmweb.it/
+ * jqScroll v1.6
+ * jQuery Plugin for Infinite Scrolling 
  *
- * Copyright 2013-2014, Davide Di Modica
  * http://ddmweb.it/
- * Dual licensed under the MIT and GPL Version 2 licenses.
- * http://www.opensource.org/licenses/mit-license.php
- * http://www.gnu.org/licenses/gpl-2.0.html
+ * Licensed under the MIT license
  *
  * @author Davide Di Modica
  * @requires jQuery v1.4.3+
  
 */
 
-//plugin infinite scroll super!!!
 
 //dichiaro la variabile globale per le opzioni
 window.jqScroll = {};
