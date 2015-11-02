@@ -17,7 +17,8 @@ function loadItems(){
 
 		var tpl = ''
 		for(var i=0; i<15; i++){
-			tpl+='<div>test</div>';
+			var hex = "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
+			tpl+='<div style="background-color:'+hex+'">'+hex+'</div>';
 		}
 		$('#jqscroll').append(tpl); 
 
