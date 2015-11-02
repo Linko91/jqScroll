@@ -25,7 +25,7 @@ coming soon!
 * Clone the repo: `git clone https://github.com/Linko91/jqScroll.git`.
 * Install with [Bower](http://bower.io): `bower install jqScroll --save`.
 * Download [un-minified](https://raw.githubusercontent.com/Linko91/jqScroll/master/jquery.jqscroll.js).
-* Standalone: ```curl -O https://raw.githubusercontent.com/Linko91/jqScroll/master/jquery.jqscroll.js```.
+* Standalone: `curl -O https://raw.githubusercontent.com/Linko91/jqScroll/master/jquery.jqscroll.js`.
 
 
 
