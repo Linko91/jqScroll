@@ -5,17 +5,9 @@
 [![Build Status](https://img.shields.io/travis/Linko91/jqScroll/master.svg)](https://travis-ci.org/Linko91/jqScroll)
 
 
-simple infinite scroll
+Simple infinite scroll
 
-## Docs
-coming soon!
-
-## EXAMPLES
-coming soon!
-
-## Demo
-coming soon! WIP
-
+## [EXAMPLE](http://linko91.github.io/jqScroll)
 
 
 ## Quick start
