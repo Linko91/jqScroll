@@ -3,7 +3,7 @@
 ![Bower version](https://img.shields.io/badge/bower-1.6.3-blue.svg)
 ![David](https://david-dm.org/Linko91/jqScroll.svg)
 [![Build Status](https://img.shields.io/travis/Linko91/jqScroll/master.svg)](https://travis-ci.org/Linko91/jqScroll)
-[![Coverage Status](https://coveralls.io/repos/Linko91/jqScroll/badge.svg?branch=master&service=github)](https://coveralls.io/github/Linko91/jqScroll?branch=master)
+
 
 simple infinite scroll
 
