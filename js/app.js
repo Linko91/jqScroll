@@ -1,6 +1,6 @@
 $(function(){		
 	//jqScroll
-    $('#stream').jqScroll({
+    $('#jqscroll').jqScroll({
 		heightOffset: 100, 
 		persistentLoad: false,
 		firstLoad: true,
