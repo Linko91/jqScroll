@@ -8,6 +8,7 @@ $(function(){
 	});
 });
 
+var _JQLOADING = 0;
 function loadItems(){
 	if(!_JQLOADING){
 		_JQLOADING = 1;
