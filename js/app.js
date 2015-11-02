@@ -19,7 +19,7 @@ function loadItems(){
 		for(var i=0; i<15; i++){
 			tpl+='<div>test</div>';
 		}
-		$('#jqScroll').append(tpl); 
+		$('#jqscroll').append(tpl); 
 
 
 		$('#loading').hide();	
